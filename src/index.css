@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #374151 #0a0a0a;
+  }
+
+  body {
+    @apply bg-[#0a0a0a] text-gray-200 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+  }
+}
+
+@layer components {
+  .cb-md {
+    @apply text-[13px] leading-relaxed;
+  }
+
+  .cb-md p.cb-p {
+    @apply mb-1.5 last:mb-0;
+  }
+
+  .cb-md h1.cb-h1 {
+    @apply text-lg font-bold text-gray-100 mt-3 mb-1.5 pb-0.5 border-b border-gray-800;
+  }
+
+  .cb-md h2.cb-h2 {
+    @apply text-base font-semibold text-gray-100 mt-2.5 mb-1.5;
+  }
+
+  .cb-md h3.cb-h3 {
+    @apply text-sm font-semibold text-gray-200 mt-2 mb-1;
+  }
+
+  .cb-md h4.cb-h4 {
+    @apply text-sm font-medium text-gray-300 mt-1.5 mb-1;
+  }
+
+  .cb-md h5.cb-h5,
+  .cb-md h6.cb-h6 {
+    @apply text-sm font-medium text-gray-400 mt-1 mb-1;
+  }
+
+  .cb-md strong {
+    @apply font-semibold text-gray-100;
+  }
+
+  .cb-md em {
+    @apply italic text-gray-300;
+  }
+
+  .cb-md .cb-inline {
+    @apply bg-gray-800 text-orange-400 px-1 py-0 rounded text-[11px] font-mono;
+  }
+
+  .cb-md .cb-block {
+    @apply bg-gray-900 border border-gray-800 rounded-md my-1.5 overflow-hidden;
+  }
+
+  .cb-md .cb-lang {
+    @apply bg-gray-800 text-gray-400 text-[10px] px-2.5 py-0.5 font-mono border-b border-gray-700;
+  }
+
+  .cb-md .cb-block pre {
+    @apply px-2.5 py-1.5 overflow-x-auto;
+  }
+
+  .cb-md .cb-block pre code {
+    @apply text-[11px] font-mono text-gray-300 leading-relaxed;
+  }
+
+  .cb-md .cb-bq {
+    @apply border-l-2 border-orange-400 pl-2.5 py-0.5 my-1.5 text-gray-400 italic bg-gray-900/40 rounded-r;
+  }
+
+  .cb-md .cb-ul {
+    @apply list-none my-1.5 pl-0;
+  }
+
+  .cb-md .cb-li {
+    @apply relative pl-4 py-0 text-gray-300;
+  }
+
+  .cb-md .cb-li::before {
+    content: '\2022';
+    @apply absolute left-1.5 text-orange-400 text-[10px];
+  }
+
+  .cb-md .cb-hr {
+    @apply border-gray-800 my-2;
+  }
+
+  .cb-md .cb-table {
+    @apply w-full text-[11px] border-collapse my-1.5;
+  }
+
+  .cb-md .cb-th {
+    @apply bg-gray-800 text-gray-300 font-semibold px-2 py-1 text-left border border-gray-700;
+  }
+
+  .cb-md .cb-td {
+    @apply px-2 py-1 border border-gray-800 text-gray-400;
+  }
+
+  .cb-md .cb-link {
+    @apply text-orange-400 hover:underline;
+  }
+}
