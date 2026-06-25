@@ -87,11 +87,11 @@
   }
 
   .cb-md .cb-block pre code {
-    @apply text-[11px] font-mono text-slate-600 leading-relaxed;
+    @apply text-[11px] font-mono text-slate-700 leading-relaxed;
   }
 
   .cb-md .cb-bq {
-    @apply border-l-2 border-uob-blue pl-2.5 py-0.5 my-1.5 text-slate-500 italic bg-slate-50/60 rounded-r;
+    @apply border-l-2 border-uob-blue pl-2.5 py-0.5 my-1.5 text-slate-600 italic bg-slate-50/60 rounded-r;
   }
 
   .cb-md .cb-ul {
@@ -99,7 +99,7 @@
   }
 
   .cb-md .cb-li {
-    @apply relative pl-4 py-0 text-slate-700;
+    @apply relative pl-4 py-0 text-slate-800;
   }
 
   .cb-md .cb-li::before {
@@ -120,7 +120,7 @@
   }
 
   .cb-md .cb-td {
-    @apply px-2 py-1 border border-slate-200 text-slate-600;
+    @apply px-2 py-1 border border-slate-200 text-slate-700;
   }
 
   .cb-md .cb-link {

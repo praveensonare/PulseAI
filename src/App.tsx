@@ -174,47 +174,49 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
   };
 
   return (
-    <div className={`flex gap-2.5 px-3 py-2 ${isUser ? 'bg-white' : 'bg-slate-50'} hover:bg-slate-50/80 transition-colors`}>
-      <div className="shrink-0 mt-0.5">
-        {isUser ? (
-          <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300">
-            <User className="w-3 h-3 text-slate-500" />
-          </div>
-        ) : (
-          <div className="w-5 h-5 rounded-full bg-uob-blue/10 flex items-center justify-center border border-uob-blue/20">
-            <Bot className="w-3 h-3 text-uob-blue" />
-          </div>
-        )}
-      </div>
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-0.5">
-          <span className={`text-[11px] font-semibold ${isUser ? 'text-slate-500' : 'text-uob-blue'}`}>
-            {isUser ? 'You' : 'PulseAI'}
-          </span>
-          <span className="text-[10px] text-slate-400">
-            {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          </span>
-          {!isUser && (
-            <button
-              onClick={copyText}
-              className="ml-auto text-slate-400 hover:text-slate-600 transition-colors"
-              title="Copy"
-            >
-              {copied ? <Check className="w-3 h-3 text-green-600" /> : <Copy className="w-3 h-3" />}
-            </button>
+    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} px-4 py-2`}>
+      <div className={`flex gap-2.5 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+        <div className="shrink-0 mt-0.5">
+          {isUser ? (
+            <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300">
+              <User className="w-3 h-3 text-slate-600" />
+            </div>
+          ) : (
+            <div className="w-5 h-5 rounded-full bg-uob-blue/10 flex items-center justify-center border border-uob-blue/20">
+              <Bot className="w-3 h-3 text-uob-blue" />
+            </div>
           )}
         </div>
-
-        {msg.attachments && msg.attachments.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-1.5">
-            {msg.attachments.map((att) => (
-              <AttachmentBadge key={att.name} att={att} />
-            ))}
+        <div className={`min-w-0 rounded-xl px-3 py-2 shadow-sm ${isUser ? 'bg-uob-blue text-white' : 'bg-white border border-slate-200'}`}>
+          <div className={`flex items-center gap-2 mb-0.5 ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+            <span className={`text-[11px] font-semibold ${isUser ? 'text-white/80' : 'text-uob-blue'}`}>
+              {isUser ? 'You' : 'PulseAI'}
+            </span>
+            <span className={`text-[10px] ${isUser ? 'text-white/60' : 'text-slate-400'}`}>
+              {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </span>
+            {!isUser && (
+              <button
+                onClick={copyText}
+                className="ml-auto text-slate-400 hover:text-slate-600 transition-colors"
+                title="Copy"
+              >
+                {copied ? <Check className="w-3 h-3 text-green-600" /> : <Copy className="w-3 h-3" />}
+              </button>
+            )}
           </div>
-        )}
 
-        <div className="text-[13px] text-slate-800 leading-relaxed">
-          <MarkdownView content={msg.content} />
+          {msg.attachments && msg.attachments.length > 0 && (
+            <div className="flex flex-wrap gap-1 mb-1.5">
+              {msg.attachments.map((att) => (
+                <AttachmentBadge key={att.name} att={att} />
+              ))}
+            </div>
+          )}
+
+          <div className={`text-[13px] leading-relaxed ${isUser ? 'text-white' : 'text-slate-800'}`}>
+            <MarkdownView content={msg.content} />
+          </div>
         </div>
       </div>
     </div>
