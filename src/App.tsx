@@ -151,7 +151,7 @@ function AttachmentBadge({
     att.name.endsWith('.txt');
   return (
     <div className="flex items-center gap-1 bg-gray-800/80 border border-gray-700 rounded px-1.5 py-0.5 text-[11px] text-gray-300">
-      <FileText className="w-3 h-3 text-orange-400 shrink-0" />
+      <FileText className="w-3 h-3 text-uob-blue shrink-0" />
       <span className="truncate max-w-[140px]">{att.name}</span>
       <span className="text-gray-500">({isText ? 'text' : att.type.split('/')[1] || 'file'})</span>
       {onRemove && (
@@ -181,14 +181,14 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
             <User className="w-3 h-3 text-gray-400" />
           </div>
         ) : (
-          <div className="w-5 h-5 rounded-full bg-orange-500/15 flex items-center justify-center border border-orange-500/25">
-            <Bot className="w-3 h-3 text-orange-400" />
+          <div className="w-5 h-5 rounded-full bg-uob-blue/15 flex items-center justify-center border border-uob-blue/25">
+            <Bot className="w-3 h-3 text-uob-blue" />
           </div>
         )}
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
-          <span className={`text-[11px] font-semibold ${isUser ? 'text-gray-400' : 'text-orange-400'}`}>
+          <span className={`text-[11px] font-semibold ${isUser ? 'text-gray-400' : 'text-uob-blue'}`}>
             {isUser ? 'You' : 'PulseAI'}
           </span>
           <span className="text-[10px] text-gray-600">
@@ -244,7 +244,7 @@ function Sidebar({
         <button onClick={onToggle} className="p-1 text-gray-600 hover:text-gray-300 rounded hover:bg-gray-800 mb-2" title="Expand">
           <ChevronRight className="w-4 h-4" />
         </button>
-        <button onClick={onNew} className="p-1 text-gray-600 hover:text-orange-400 rounded hover:bg-gray-800" title="New chat">
+        <button onClick={onNew} className="p-1 text-gray-600 hover:text-uob-blue rounded hover:bg-gray-800" title="New chat">
           <Plus className="w-4 h-4" />
         </button>
       </div>
@@ -304,8 +304,8 @@ function EmptyState({ onPick }: { onPick: (t: string) => void }) {
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-4 py-6 min-h-0">
-      <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-3 border border-orange-500/20 shrink-0">
-        <MessageSquare className="w-5 h-5 text-orange-400" />
+      <div className="w-10 h-10 rounded-lg bg-uob-blue/10 flex items-center justify-center mb-3 border border-uob-blue/20 shrink-0">
+        <MessageSquare className="w-5 h-5 text-uob-blue" />
       </div>
       <h2 className="text-base font-semibold text-gray-200 mb-0.5 shrink-0">Welcome to PULSE MVP</h2>
       <p className="text-[12px] text-gray-500 mb-4 text-center max-w-sm shrink-0">
@@ -319,7 +319,7 @@ function EmptyState({ onPick }: { onPick: (t: string) => void }) {
             onClick={() => onPick(p.text)}
             className="w-full flex items-start gap-2.5 px-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg hover:border-gray-600 hover:bg-gray-800 transition-all text-left group"
           >
-            <p.icon className="w-4 h-4 text-orange-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+            <p.icon className="w-4 h-4 text-uob-blue shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
             <div className="min-w-0">
               <div className="text-[12px] font-medium text-gray-300">{p.label}</div>
               <div className="text-[11px] text-gray-500 leading-snug">{p.text}</div>
@@ -394,7 +394,7 @@ function ChatInput({
 
       <div
         className={`flex items-end gap-2 bg-gray-900 border rounded-lg px-2.5 py-1.5 transition-colors ${
-          dragOver ? 'border-orange-400 ring-1 ring-orange-400/30' : 'border-gray-700 hover:border-gray-600'
+          dragOver ? 'border-uob-blue ring-1 ring-uob-blue/30' : 'border-gray-700 hover:border-gray-600'
         }`}
         onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
@@ -424,7 +424,7 @@ function ChatInput({
         <button
           onClick={handleSend}
           disabled={loading || (!text.trim() && attachments.length === 0)}
-          className="p-1.5 rounded-md transition-colors shrink-0 disabled:opacity-30 disabled:cursor-not-allowed bg-orange-500 hover:bg-orange-600 text-white"
+          className="p-1.5 rounded-md transition-colors shrink-0 disabled:opacity-30 disabled:cursor-not-allowed bg-uob-blue hover:bg-[#004c8c] text-white"
         >
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         </button>
@@ -609,13 +609,13 @@ export default function App() {
           >
             <Menu className="w-4 h-4" />
           </button>
-          <MessageSquare className="w-4 h-4 text-orange-400" />
+          <MessageSquare className="w-4 h-4 text-uob-blue" />
           <span className="text-[13px] font-semibold text-gray-100 tracking-tight">PULSE MVP</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 bg-gray-900 rounded-md px-2 py-1 border border-gray-800">
-            <div className="w-5 h-5 rounded-full bg-orange-500/15 flex items-center justify-center">
-              <User className="w-3 h-3 text-orange-400" />
+            <div className="w-5 h-5 rounded-full bg-uob-blue/15 flex items-center justify-center">
+              <User className="w-3 h-3 text-uob-blue" />
             </div>
             <span className="text-[11px] text-gray-300 hidden sm:inline">Leadership</span>
           </div>
@@ -695,8 +695,8 @@ export default function App() {
                 ))}
                 {loading && (
                   <div className="flex gap-2.5 px-3 py-2 bg-[#111111]">
-                    <div className="w-5 h-5 rounded-full bg-orange-500/15 flex items-center justify-center border border-orange-500/25 shrink-0">
-                      <div className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse" />
+                    <div className="w-5 h-5 rounded-full bg-uob-blue/15 flex items-center justify-center border border-uob-blue/25 shrink-0">
+                      <div className="w-1.5 h-1.5 bg-uob-blue rounded-full animate-pulse" />
                     </div>
                     <div className="flex items-center gap-1">
                       <div className="w-1 h-1 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
