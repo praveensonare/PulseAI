@@ -5,11 +5,11 @@
 @layer base {
   html {
     scrollbar-width: thin;
-    scrollbar-color: #1e3a5f #0a0a0a;
+    scrollbar-color: #cbd5e1 #f8fafc;
   }
 
   body {
-    @apply bg-[#0a0a0a] text-gray-200 antialiased;
+    @apply bg-white text-slate-800 antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
 
@@ -19,16 +19,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #f8fafc;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1e3a5f;
+    background: #cbd5e1;
     border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #2a4f7a;
+    background: #94a3b8;
   }
 }
 
@@ -42,44 +42,44 @@
   }
 
   .cb-md h1.cb-h1 {
-    @apply text-lg font-bold text-gray-100 mt-3 mb-1.5 pb-0.5 border-b border-gray-800;
+    @apply text-lg font-bold text-slate-900 mt-3 mb-1.5 pb-0.5 border-b border-slate-200;
   }
 
   .cb-md h2.cb-h2 {
-    @apply text-base font-semibold text-gray-100 mt-2.5 mb-1.5;
+    @apply text-base font-semibold text-slate-900 mt-2.5 mb-1.5;
   }
 
   .cb-md h3.cb-h3 {
-    @apply text-sm font-semibold text-gray-200 mt-2 mb-1;
+    @apply text-sm font-semibold text-slate-800 mt-2 mb-1;
   }
 
   .cb-md h4.cb-h4 {
-    @apply text-sm font-medium text-gray-300 mt-1.5 mb-1;
+    @apply text-sm font-medium text-slate-700 mt-1.5 mb-1;
   }
 
   .cb-md h5.cb-h5,
   .cb-md h6.cb-h6 {
-    @apply text-sm font-medium text-gray-400 mt-1 mb-1;
+    @apply text-sm font-medium text-slate-500 mt-1 mb-1;
   }
 
   .cb-md strong {
-    @apply font-semibold text-gray-100;
+    @apply font-semibold text-slate-900;
   }
 
   .cb-md em {
-    @apply italic text-gray-300;
+    @apply italic text-slate-500;
   }
 
   .cb-md .cb-inline {
-    @apply bg-gray-800 text-uob-blue px-1 py-0 rounded text-[11px] font-mono;
+    @apply bg-slate-100 text-uob-blue px-1 py-0 rounded text-[11px] font-mono;
   }
 
   .cb-md .cb-block {
-    @apply bg-gray-900 border border-gray-800 rounded-md my-1.5 overflow-hidden;
+    @apply bg-slate-50 border border-slate-200 rounded-md my-1.5 overflow-hidden;
   }
 
   .cb-md .cb-lang {
-    @apply bg-gray-800 text-gray-400 text-[10px] px-2.5 py-0.5 font-mono border-b border-gray-700;
+    @apply bg-slate-100 text-slate-500 text-[10px] px-2.5 py-0.5 font-mono border-b border-slate-200;
   }
 
   .cb-md .cb-block pre {
@@ -87,11 +87,11 @@
   }
 
   .cb-md .cb-block pre code {
-    @apply text-[11px] font-mono text-gray-300 leading-relaxed;
+    @apply text-[11px] font-mono text-slate-600 leading-relaxed;
   }
 
   .cb-md .cb-bq {
-    @apply border-l-2 border-uob-blue pl-2.5 py-0.5 my-1.5 text-gray-400 italic bg-gray-900/40 rounded-r;
+    @apply border-l-2 border-uob-blue pl-2.5 py-0.5 my-1.5 text-slate-500 italic bg-slate-50/60 rounded-r;
   }
 
   .cb-md .cb-ul {
@@ -99,7 +99,7 @@
   }
 
   .cb-md .cb-li {
-    @apply relative pl-4 py-0 text-gray-300;
+    @apply relative pl-4 py-0 text-slate-700;
   }
 
   .cb-md .cb-li::before {
@@ -108,7 +108,7 @@
   }
 
   .cb-md .cb-hr {
-    @apply border-gray-800 my-2;
+    @apply border-slate-200 my-2;
   }
 
   .cb-md .cb-table {
@@ -116,11 +116,11 @@
   }
 
   .cb-md .cb-th {
-    @apply bg-gray-800 text-gray-300 font-semibold px-2 py-1 text-left border border-gray-700;
+    @apply bg-slate-100 text-slate-700 font-semibold px-2 py-1 text-left border border-slate-200;
   }
 
   .cb-md .cb-td {
-    @apply px-2 py-1 border border-gray-800 text-gray-400;
+    @apply px-2 py-1 border border-slate-200 text-slate-600;
   }
 
   .cb-md .cb-link {

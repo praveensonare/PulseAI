@@ -150,12 +150,12 @@ function AttachmentBadge({
     att.name.endsWith('.md') ||
     att.name.endsWith('.txt');
   return (
-    <div className="flex items-center gap-1 bg-gray-800/80 border border-gray-700 rounded px-1.5 py-0.5 text-[11px] text-gray-300">
+    <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded px-1.5 py-0.5 text-[11px] text-slate-600">
       <FileText className="w-3 h-3 text-uob-blue shrink-0" />
       <span className="truncate max-w-[140px]">{att.name}</span>
-      <span className="text-gray-500">({isText ? 'text' : att.type.split('/')[1] || 'file'})</span>
+      <span className="text-slate-400">({isText ? 'text' : att.type.split('/')[1] || 'file'})</span>
       {onRemove && (
-        <button onClick={onRemove} className="ml-0.5 text-gray-500 hover:text-red-400">
+        <button onClick={onRemove} className="ml-0.5 text-slate-400 hover:text-red-500">
           <X className="w-3 h-3" />
         </button>
       )}
@@ -174,33 +174,33 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
   };
 
   return (
-    <div className={`flex gap-2.5 px-3 py-2 ${isUser ? 'bg-[#0c0c0c]' : 'bg-[#111111]'} hover:bg-[#151515] transition-colors`}>
+    <div className={`flex gap-2.5 px-3 py-2 ${isUser ? 'bg-white' : 'bg-slate-50'} hover:bg-slate-50/80 transition-colors`}>
       <div className="shrink-0 mt-0.5">
         {isUser ? (
-          <div className="w-5 h-5 rounded-full bg-gray-800 flex items-center justify-center border border-gray-700">
-            <User className="w-3 h-3 text-gray-400" />
+          <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300">
+            <User className="w-3 h-3 text-slate-500" />
           </div>
         ) : (
-          <div className="w-5 h-5 rounded-full bg-uob-blue/15 flex items-center justify-center border border-uob-blue/25">
+          <div className="w-5 h-5 rounded-full bg-uob-blue/10 flex items-center justify-center border border-uob-blue/20">
             <Bot className="w-3 h-3 text-uob-blue" />
           </div>
         )}
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-0.5">
-          <span className={`text-[11px] font-semibold ${isUser ? 'text-gray-400' : 'text-uob-blue'}`}>
+          <span className={`text-[11px] font-semibold ${isUser ? 'text-slate-500' : 'text-uob-blue'}`}>
             {isUser ? 'You' : 'PulseAI'}
           </span>
-          <span className="text-[10px] text-gray-600">
+          <span className="text-[10px] text-slate-400">
             {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
           {!isUser && (
             <button
               onClick={copyText}
-              className="ml-auto text-gray-600 hover:text-gray-300 transition-colors"
+              className="ml-auto text-slate-400 hover:text-slate-600 transition-colors"
               title="Copy"
             >
-              {copied ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+              {copied ? <Check className="w-3 h-3 text-green-600" /> : <Copy className="w-3 h-3" />}
             </button>
           )}
         </div>
@@ -213,7 +213,7 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
           </div>
         )}
 
-        <div className="text-[13px] text-gray-200 leading-relaxed">
+        <div className="text-[13px] text-slate-800 leading-relaxed">
           <MarkdownView content={msg.content} />
         </div>
       </div>
@@ -240,11 +240,11 @@ function Sidebar({
 }) {
   if (collapsed) {
     return (
-      <div className="w-9 border-r border-gray-800 bg-[#0a0a0a] flex flex-col items-center py-2 shrink-1">
-        <button onClick={onToggle} className="p-1 text-gray-600 hover:text-gray-300 rounded hover:bg-gray-800 mb-2" title="Expand">
+      <div className="w-9 border-r border-slate-200 bg-white flex flex-col items-center py-2 shrink-1">
+        <button onClick={onToggle} className="p-1 text-slate-400 hover:text-slate-700 rounded hover:bg-slate-100 mb-2" title="Expand">
           <ChevronRight className="w-4 h-4" />
         </button>
-        <button onClick={onNew} className="p-1 text-gray-600 hover:text-uob-blue rounded hover:bg-gray-800" title="New chat">
+        <button onClick={onNew} className="p-1 text-slate-400 hover:text-uob-blue rounded hover:bg-slate-100" title="New chat">
           <Plus className="w-4 h-4" />
         </button>
       </div>
@@ -252,16 +252,16 @@ function Sidebar({
   }
 
   return (
-    <div className="w-56 border-r border-gray-800 bg-[#0a0a0a] flex flex-col shrink-1">
-      <div className="flex items-center justify-between px-2 py-1.5 border-b border-gray-800">
+    <div className="w-56 border-r border-slate-200 bg-white flex flex-col shrink-1">
+      <div className="flex items-center justify-between px-2 py-1.5 border-b border-slate-200">
         <button
           onClick={onNew}
-          className="flex items-center gap-2 flex-1 px-2 py-1 text-[13px] font-medium text-gray-300 hover:text-gray-100 bg-gray-900 hover:bg-gray-800 rounded transition-colors border border-gray-800"
+          className="flex items-center gap-2 flex-1 px-2 py-1 text-[13px] font-medium text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded transition-colors border border-slate-200"
         >
           <Plus className="w-3.5 h-3.5" />
           New chat
         </button>
-        <button onClick={onToggle} className="p-1 ml-1 text-gray-600 hover:text-gray-300 rounded hover:bg-gray-800" title="Collapse">
+        <button onClick={onToggle} className="p-1 ml-1 text-slate-400 hover:text-slate-700 rounded hover:bg-slate-100" title="Collapse">
           <ChevronLeft className="w-4 h-4" />
         </button>
       </div>
@@ -269,14 +269,14 @@ function Sidebar({
       <div className="flex-1 overflow-y-auto py-1">
         {conversations.length === 0 && (
           <div className="px-3 py-5 text-center">
-            <p className="text-[11px] text-gray-600">No chats yet</p>
+            <p className="text-[11px] text-slate-400">No chats yet</p>
           </div>
         )}
         {conversations.map((c) => (
           <div
             key={c.id}
             className={`group flex items-center gap-2 mx-1 px-2 py-1 rounded cursor-pointer transition-colors ${
-              activeId === c.id ? 'bg-gray-800 text-gray-100' : 'text-gray-400 hover:bg-gray-900 hover:text-gray-200'
+              activeId === c.id ? 'bg-slate-100 text-slate-900' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
             }`}
             onClick={() => onSelect(c.id)}
           >
@@ -284,7 +284,7 @@ function Sidebar({
             <span className="text-[12px] truncate flex-1">{c.title}</span>
             <button
               onClick={(e) => { e.stopPropagation(); onDelete(c.id); }}
-              className="opacity-0 group-hover:opacity-100 p-0.5 text-gray-600 hover:text-red-400 rounded transition-all"
+              className="opacity-0 group-hover:opacity-100 p-0.5 text-slate-400 hover:text-red-500 rounded transition-all"
             >
               <Trash2 className="w-3 h-3" />
             </button>
@@ -307,8 +307,8 @@ function EmptyState({ onPick }: { onPick: (t: string) => void }) {
       <div className="w-10 h-10 rounded-lg bg-uob-blue/10 flex items-center justify-center mb-3 border border-uob-blue/20 shrink-0">
         <MessageSquare className="w-5 h-5 text-uob-blue" />
       </div>
-      <h2 className="text-base font-semibold text-gray-200 mb-0.5 shrink-0">Welcome to PULSE MVP</h2>
-      <p className="text-[12px] text-gray-500 mb-4 text-center max-w-sm shrink-0">
+      <h2 className="text-base font-semibold text-slate-900 mb-0.5 shrink-0">Welcome to PULSE MVP</h2>
+      <p className="text-[12px] text-slate-500 mb-4 text-center max-w-sm shrink-0">
         AI assistant for UOB Leadership. Ask about revenue trends, risk summaries,
         or upload reports for instant insights.
       </p>
@@ -317,12 +317,12 @@ function EmptyState({ onPick }: { onPick: (t: string) => void }) {
           <button
             key={p.text}
             onClick={() => onPick(p.text)}
-            className="w-full flex items-start gap-2.5 px-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg hover:border-gray-600 hover:bg-gray-800 transition-all text-left group"
+            className="w-full flex items-start gap-2.5 px-3 py-2.5 bg-white border border-slate-200 rounded-lg hover:border-uob-blue/40 hover:bg-slate-50 transition-all text-left group shadow-sm"
           >
             <p.icon className="w-4 h-4 text-uob-blue shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
             <div className="min-w-0">
-              <div className="text-[12px] font-medium text-gray-300">{p.label}</div>
-              <div className="text-[11px] text-gray-500 leading-snug">{p.text}</div>
+              <div className="text-[12px] font-medium text-slate-700">{p.label}</div>
+              <div className="text-[11px] text-slate-500 leading-snug">{p.text}</div>
             </div>
           </button>
         ))}
@@ -383,7 +383,7 @@ function ChatInput({
   }, []);
 
   return (
-    <div className="border-t border-gray-800 bg-[#0a0a0a] px-3 py-1.5">
+    <div className="border-t border-slate-200 bg-white px-3 py-1.5">
       {attachments.length > 0 && (
         <div className="flex flex-wrap gap-1 mb-1.5">
           {attachments.map((att) => (
@@ -393,8 +393,8 @@ function ChatInput({
       )}
 
       <div
-        className={`flex items-end gap-2 bg-gray-900 border rounded-lg px-2.5 py-1.5 transition-colors ${
-          dragOver ? 'border-uob-blue ring-1 ring-uob-blue/30' : 'border-gray-700 hover:border-gray-600'
+        className={`flex items-end gap-2 bg-slate-50 border rounded-lg px-2.5 py-1.5 transition-colors ${
+          dragOver ? 'border-uob-blue ring-1 ring-uob-blue/20' : 'border-slate-300 hover:border-slate-400'
         }`}
         onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
@@ -402,7 +402,7 @@ function ChatInput({
       >
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="p-1 text-gray-500 hover:text-gray-300 rounded hover:bg-gray-800 transition-colors shrink-0"
+          className="p-1 text-slate-400 hover:text-slate-600 rounded hover:bg-slate-100 transition-colors shrink-0"
           title="Attach file"
         >
           <Paperclip className="w-4 h-4" />
@@ -417,7 +417,7 @@ function ChatInput({
           onInput={handleInput}
           placeholder="Message..."
           rows={1}
-          className="flex-1 bg-transparent text-[13px] text-gray-200 placeholder-gray-600 resize-none outline-none min-h-[22px] max-h-[180px] py-0.5"
+          className="flex-1 bg-transparent text-[13px] text-slate-800 placeholder-slate-400 resize-none outline-none min-h-[22px] max-h-[180px] py-0.5"
           disabled={loading}
         />
 
@@ -429,7 +429,7 @@ function ChatInput({
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         </button>
       </div>
-      <div className="text-[10px] text-gray-700 text-center mt-0.5">Shift+Enter for new line · Drag & drop files</div>
+      <div className="text-[10px] text-slate-400 text-center mt-0.5">Shift+Enter for new line · Drag & drop files</div>
     </div>
   );
 }
@@ -599,29 +599,29 @@ export default function App() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col bg-[#0a0a0a] text-gray-200 overflow-hidden">
+    <div className="h-screen flex flex-col bg-white text-slate-800 overflow-hidden">
       {/* Header */}
-      <header className="h-10 border-b border-gray-800 bg-[#0a0a0a] flex items-center justify-between px-3 shrink-0">
+      <header className="h-10 border-b border-slate-200 bg-white flex items-center justify-between px-3 shrink-0">
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSidebarOpen((p) => !p)}
-            className="sm:hidden p-1 text-gray-500 hover:text-gray-200 rounded hover:bg-gray-800"
+            className="sm:hidden p-1 text-slate-500 hover:text-slate-800 rounded hover:bg-slate-100"
           >
             <Menu className="w-4 h-4" />
           </button>
           <MessageSquare className="w-4 h-4 text-uob-blue" />
-          <span className="text-[13px] font-semibold text-gray-100 tracking-tight">PULSE MVP</span>
+          <span className="text-[13px] font-semibold text-slate-900 tracking-tight">PULSE MVP</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-2 bg-gray-900 rounded-md px-2 py-1 border border-gray-800">
-            <div className="w-5 h-5 rounded-full bg-uob-blue/15 flex items-center justify-center">
+          <div className="flex items-center gap-2 bg-slate-50 rounded-md px-2 py-1 border border-slate-200">
+            <div className="w-5 h-5 rounded-full bg-uob-blue/10 flex items-center justify-center">
               <User className="w-3 h-3 text-uob-blue" />
             </div>
-            <span className="text-[11px] text-gray-300 hidden sm:inline">Leadership</span>
+            <span className="text-[11px] text-slate-600 hidden sm:inline">Leadership</span>
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-1 px-2 py-1 text-[11px] font-medium text-gray-400 hover:text-gray-100 hover:bg-gray-800 rounded-md transition-colors"
+            className="flex items-center gap-1 px-2 py-1 text-[11px] font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
           >
             <LogOut className="w-3 h-3" />
             <span className="hidden sm:inline">Logout</span>
@@ -634,17 +634,17 @@ export default function App() {
         {/* Mobile sidebar overlay */}
         {sidebarOpen && (
           <>
-            <div className="fixed inset-0 bg-black/60 z-40 sm:hidden" onClick={() => setSidebarOpen(false)} />
-            <div className="fixed left-0 top-10 bottom-0 w-56 bg-[#0a0a0a] border-r border-gray-800 z-50 sm:hidden flex flex-col">
-              <div className="flex items-center justify-between px-2 py-1.5 border-b border-gray-800">
+            <div className="fixed inset-0 bg-black/40 z-40 sm:hidden" onClick={() => setSidebarOpen(false)} />
+            <div className="fixed left-0 top-10 bottom-0 w-56 bg-white border-r border-slate-200 z-50 sm:hidden flex flex-col">
+              <div className="flex items-center justify-between px-2 py-1.5 border-b border-slate-200">
                 <button
                   onClick={() => { createConversation(); setSidebarOpen(false); }}
-                  className="flex items-center gap-2 flex-1 px-2 py-1 text-[13px] font-medium text-gray-300 hover:text-gray-100 bg-gray-900 hover:bg-gray-800 rounded transition-colors border border-gray-800"
+                  className="flex items-center gap-2 flex-1 px-2 py-1 text-[13px] font-medium text-slate-700 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded transition-colors border border-slate-200"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   New chat
                 </button>
-                <button onClick={() => setSidebarOpen(false)} className="p-1 ml-1 text-gray-600 hover:text-gray-300 rounded hover:bg-gray-800">
+                <button onClick={() => setSidebarOpen(false)} className="p-1 ml-1 text-slate-400 hover:text-slate-700 rounded hover:bg-slate-100">
                   <ChevronLeft className="w-4 h-4" />
                 </button>
               </div>
@@ -653,7 +653,7 @@ export default function App() {
                   <div
                     key={c.id}
                     className={`group flex items-center gap-2 mx-1 px-2 py-1 rounded cursor-pointer transition-colors ${
-                      activeId === c.id ? 'bg-gray-800 text-gray-100' : 'text-gray-400 hover:bg-gray-900 hover:text-gray-200'
+                      activeId === c.id ? 'bg-slate-100 text-slate-900' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
                     }`}
                     onClick={() => { setActiveId(c.id); setSidebarOpen(false); }}
                   >
@@ -661,7 +661,7 @@ export default function App() {
                     <span className="text-[12px] truncate flex-1">{c.title}</span>
                     <button
                       onClick={(e) => { e.stopPropagation(); deleteConversation(c.id); }}
-                      className="opacity-0 group-hover:opacity-100 p-0.5 text-gray-600 hover:text-red-400 rounded transition-all"
+                      className="opacity-0 group-hover:opacity-100 p-0.5 text-slate-400 hover:text-red-500 rounded transition-all"
                     >
                       <Trash2 className="w-3 h-3" />
                     </button>
@@ -694,19 +694,19 @@ export default function App() {
                   <ChatBubble key={msg.id} msg={msg} />
                 ))}
                 {loading && (
-                  <div className="flex gap-2.5 px-3 py-2 bg-[#111111]">
-                    <div className="w-5 h-5 rounded-full bg-uob-blue/15 flex items-center justify-center border border-uob-blue/25 shrink-0">
+                  <div className="flex gap-2.5 px-3 py-2 bg-white">
+                    <div className="w-5 h-5 rounded-full bg-uob-blue/10 flex items-center justify-center border border-uob-blue/20 shrink-0">
                       <div className="w-1.5 h-1.5 bg-uob-blue rounded-full animate-pulse" />
                     </div>
                     <div className="flex items-center gap-1">
-                      <div className="w-1 h-1 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <div className="w-1 h-1 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '120ms' }} />
-                      <div className="w-1 h-1 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '240ms' }} />
+                      <div className="w-1 h-1 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <div className="w-1 h-1 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '120ms' }} />
+                      <div className="w-1 h-1 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '240ms' }} />
                     </div>
                   </div>
                 )}
                 {error && (
-                  <div className="px-3 py-1.5 bg-red-950/30 border-t border-red-900/30 text-[11px] text-red-300">
+                  <div className="px-3 py-1.5 bg-red-50 border-t border-red-100 text-[11px] text-red-600">
                     Error: {error}
                   </div>
                 )}
